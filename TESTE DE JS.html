@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Luiza</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      var initialDate = new Date(2022, 10, 5);
+      var today = new Date();
+
+
+      $("#date_ini, #date_end").datepicker({
+        minDate: initialDate,
+        dateFormat: 'dd/mm/yy',
+        defaultDate: initialDate
+      });
+
+
+      $("#date_ini").datepicker("setDate", initialDate);
+      $("#date_end").datepicker("setDate", today);
+
+
+      var formattedToday = ("0" + today.getDate()).slice(-2) + "/" + ("0" + (today.getMonth() + 1)).slice(-2) + "/" + today.getFullYear();
+
+
+      $("#date_ini").val("05/10/2022");
+      $("#date_end").val(formattedToday);
+    });
+
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    function countDays() {
+
+      let date_ini = new Date(document.form_main.date_ini.value.split('/').reverse().join('-'));
+      let date_end = new Date(document.form_main.date_end.value.split('/').reverse().join('-'));
+
+      let diff = date_end.getTime() - date_ini.getTime();
+
+      document.getElementById('days').innerText = Math.floor(diff / day);
+    }
+  </script>
+</head>
+
+<body style="background-color: #fdcae1; text-align: center;">
+
+  <b>
+    <h1>Calculadora dos dias que eu amo você</h1>
+    <h2>Insira uma data abaixo:</h2>
+
+    <form name="form_main">
+      <label for="date_ini">Data Inicial: </label>
+      <input name="date_ini" id="date_ini" type="text"> <br><br>
+      <label for="date_end">Data Final: </label>
+      <input name="date_end" id="date_end" type="text"> <br><br>
+      <label for="days">Dias que te amo: </label>
+      <span id="days"></span> <br><br>
+      <button type="button" onclick="countDays()"> Contar</button>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <a href="https://wa.me/7582581355/?text=Eu te amo" 
+      id="wpp" 
+      class="wpp" 
+      target="blank">
+      Aperte aqui para me da o melhor presente do mundo </a>
+
+    </form>
+  </b>
+
+</body>
+
+</html>
