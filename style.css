@@ -2,12 +2,8 @@
 body {
     font-family:'Times New Roman', Times, serif;
     font-size: 18px;
-    background: URL(nos.jpg), URL(olhos.jpg), URL(ani.jpg);
-    background-position: center center;
-    background-size:contain;
-    background-repeat: no-repeat;
-    padding: 0;
-    margin: 0;
+    background: URL(Slide.gif.gif);
+    background-size:cover;
 }
 
 #wpp {
